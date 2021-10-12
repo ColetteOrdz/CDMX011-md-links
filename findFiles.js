@@ -1,7 +1,8 @@
 const fs = require('fs')
 const { isAbsolute, resolve, extname } = require('path')
 const path = require('path')
-const route = process.argv[2];
+//const route = process.argv[2];
+
 
 
 
@@ -13,9 +14,8 @@ function findFiles (directory) {
     
         if (error) {
             return 'Something is wrong. ' + error;
-        } else {
-            const arrayFiles = [];
-        
+        } 
+        const arrayFiles = [];
             //console.log(list) //Todo el contenido de las carpetas
             list.map(file => {
                 if (path.extname(file) === '.md' || path.extname(file) === '.markdown' || path.extname(file) === '.mdown' ) {
@@ -23,7 +23,7 @@ function findFiles (directory) {
                     
                     //console.log([mdPath]) //Ruta de cada archivo md
                     arrayFiles.push(mdPath);
-                }
+                } else
                 
                 if (file.split('').indexOf('.') === -1) {
                     let dirPath = absPath + '\\'  + `${file}` 
@@ -33,11 +33,11 @@ function findFiles (directory) {
             }) 
             console.log(arrayFiles);
             return arrayFiles
-        } 
+         
     
     })
-}
+};
 
-findFiles(route)
+//findFiles(route)
 
-module.exports = findFiles 
+exports.findFiles = findFiles 

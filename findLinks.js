@@ -14,16 +14,7 @@ function findLinks (arrayFiles) {
             //console.log(data);
             return data;
         });
-        const fileName = path.basename(filePath);
-        const newLinks = [];
-        const renderer = new marked.Renderer();
-
-        renderer.link = (href, title, text) => {
-            console.log(href)
-            console.log(title)
-            console.log(text)
-            
-        }
+        
     })
    
 }
