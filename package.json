@@ -1,4 +1,25 @@
 {
-  "name": "md-links",
-  "version": "0.1.0"
+  "name": "mdlinks",
+  "version": "0.1.0",
+  "description": "Esta es mi libreria",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ColetteOrdz/CDMX011-md-links.git"
+  },
+  "author": "Colette",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ColetteOrdz/CDMX011-md-links/issues"
+  },
+  "homepage": "https://github.com/ColetteOrdz/CDMX011-md-links#readme",
+  "dependencies": {
+    "marked": "^3.0.7"
+  }
 }
