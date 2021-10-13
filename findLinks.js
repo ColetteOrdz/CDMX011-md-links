@@ -1,6 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const marked = require('marked')
+const html = marked('# Marked in Node.js\n\nRendered by **marked**.');
 const arrayFiles = 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links/README.md'
 
 function findLinks (arrayFiles) {
@@ -14,7 +15,16 @@ function findLinks (arrayFiles) {
             //console.log(data);
             return data;
         });
-        
+        const fileName = path.basename(filePath);
+        const newLinks = [];
+        const renderer = new marked.Renderer();
+
+        renderer.link = (href, title, text) => {
+            console.log(href)
+            console.log(title)
+            console.log(text)
+            
+        }
     })
    
 }

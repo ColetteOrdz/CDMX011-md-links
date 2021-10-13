@@ -12,3 +12,4 @@ const route = process.argv[2];
 
 
 //node mdLinks 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links'
+//node mdLinks 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links/README.md'
