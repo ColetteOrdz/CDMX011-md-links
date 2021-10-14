@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const functionFiles = require('./findFiles.js')
+const functionFiles = require('./find-FilesAsync.js')
 //const functionLinks = require('./findLinks.js')
 
 const route = process.argv[2];

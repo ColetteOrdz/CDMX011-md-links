@@ -1,13 +1,19 @@
 const fs = require('fs')
 const path = require('path')
-const marked = require('marked')
-const html = marked('# Marked in Node.js\n\nRendered by **marked**.');
-const arrayFiles = 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links/README.md'
+const markdownLinkExtractor = require('markdown-link-extractor');
+const arrayFiles = 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links/README.md';
 
 function findLinks (arrayFiles) {
-    let links = [];
+   
     const mdFile = arrayFiles;
-    mdFile.map((filePath) => { //???  por qué no es una función?????
+    console.log(mdFile)
+    console.log('ya jala marked')
+    const markdown = fs.readFileSync(arrayFiles, {encoding: 'utf8'});
+    const links = markdownLinkExtractor(markdown, false);
+    links.forEach(link => console.log(link));
+
+
+    /*mdFile.map((filePath) => { //???  por qué no es una función?????
         const fileData = fs.readFile(miniruta, 'utf8', (error, data) => {
             if (error) {
                 return 'Something is wrong with the file. ' + error;
@@ -25,7 +31,7 @@ function findLinks (arrayFiles) {
             console.log(text)
             
         }
-    })
+    })*/
    
 }
 findLinks(arrayFiles)
