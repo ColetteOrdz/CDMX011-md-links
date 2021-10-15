@@ -1,14 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 const functionFiles = require('./findFiles.js')
-//const functionLinks = require('./findLinks.js')
+const functionLinks = require('./findLinks.js')
 
 const route = process.argv[2];
 
   const files = functionFiles.findFiles(route) 
-  //.then( data => { console.log(data)})
-  //console.log(files)
-  //const links = functionLinks.findLinks(files);
+  // const links = functionLinks.findLinks(files)
+  // console.log(links)
 
 
 
