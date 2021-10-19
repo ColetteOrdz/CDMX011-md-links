@@ -1,9 +1,10 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs')
+const path = require('path')
 
 const filesFn = require('./mdFiles.js')
 const linksFn = require('./findLinks.js')
 const validateFn = require('./linksValid.js')
+const stadisticsFn =  require('./linksStadistics')
 
 const route = process.argv[2];
 
