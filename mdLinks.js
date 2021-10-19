@@ -1,12 +1,16 @@
 const fs = require('fs');
 const path = require('path');
-const functionFiles = require('./findFiles.js')
-//const functionLinks = require('./findLinks.js')
 
-const route = process.argv[2];
+const filesFn = require('./mdFiles.js')
+const linksFn = require('./findLinks.js')
+const validateFn = require('./linksValid.js')
 
-  const files = functionFiles.findFiles(route);
-  //const links = functionLinks.findLinks(files);
+//const route = process.argv[2];
+
+  const mdfiles = filesFn.findFiles(route) 
+  // const links = linksFn.getLinks(mdfiles)
+  // const validate = validateFn.validate(links)
+  // console.log();
 
 
 
