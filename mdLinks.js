@@ -5,13 +5,18 @@ const filesFn = require('./mdFiles.js')
 const linksFn = require('./findLinks.js')
 const validateFn = require('./linksValid.js')
 
-//const route = process.argv[2];
+const route = process.argv[2];
 
-  const mdfiles = filesFn.findFiles(route) 
-  // const links = linksFn.getLinks(mdfiles)
-  // const validate = validateFn.validate(links)
-  // console.log();
+function mdLinks(route){
+  const mdFiles = filesFn.findFiles(route); 
+  const links = linksFn.getLinks(mdFiles).then((result) => {
+  validateFn.validate(result[0]).then((data) => {console.log(data)})
+  
+});
+  
+}
 
+mdLinks(route)
 
 
 
