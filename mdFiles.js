@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const { isAbsolute, resolve, extname } = require('path')
-const route = process.argv[2];
+//const route = process.argv[2];
 
 function findFiles (directory) {
     const arrayFiles = [];
@@ -31,10 +31,10 @@ function findFiles (directory) {
         }
         findDir(absPath)
     }
-    console.log(arrayFiles)
+    //console.log(arrayFiles)
     return arrayFiles
 }
 
-findFiles(route)  
+//findFiles(route)  
 
-//exports.findFiles = findFiles 
+exports.findFiles = findFiles 
