@@ -1,33 +1,33 @@
-const mockLinks = [
-    {
-    file: 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links/README.md', 
-    href: 'https://nodejs.org/',
-    text:'Node.js',
-    message: 'OK',
-    status: 200
-    },
-    {
-        file: 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links/README.md', 
-        href: 'https://nodejs.org/',
-        text:'Node.js',
-        message: 'OK',
-        status: 200
-    },
-    {
-    file: 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links/README.md',
-    href: 'https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Functions',
-    text: 'Funciones — bloques de código reutilizables - MDN',
-    message: 'FAIL',
-    status: 404 
-    },
-    {
-        file: 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links/README.md',
-        href: 'https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Functions',
-        text: 'Funciones — bloques de código reutilizables - MDN',
-        message: 'FAIL',
-        status: 404 
-    }
-]
+// const mockLinks = [
+//     {
+//     file: 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links/README.md', 
+//     href: 'https://nodejs.org/',
+//     text:'Node.js',
+//     message: 'OK',
+//     status: 200
+//     },
+//     {
+//         file: 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links/README.md', 
+//         href: 'https://nodejs.org/',
+//         text:'Node.js',
+//         message: 'OK',
+//         status: 200
+//     },
+//     {
+//     file: 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links/README.md',
+//     href: 'https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Functions',
+//     text: 'Funciones — bloques de código reutilizables - MDN',
+//     message: 'FAIL',
+//     status: 404 
+//     },
+//     {
+//         file: 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links/README.md',
+//         href: 'https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Functions',
+//         text: 'Funciones — bloques de código reutilizables - MDN',
+//         message: 'FAIL',
+//         status: 404 
+//     }
+// ]
 
 function stadistics(arrayLinks){
     return new Promise((resolve, reject) =>{
@@ -58,7 +58,7 @@ function stadistics(arrayLinks){
     });
 }
 
-stadistics(mockLinks).then(result => {console.log(result)})
-//exports.stadistics = stadistics
+//stadistics(mockLinks).then(result => {console.log(result)})
+exports.stadistics = stadistics
 
 

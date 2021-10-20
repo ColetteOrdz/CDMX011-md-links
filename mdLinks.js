@@ -11,9 +11,14 @@ const route = process.argv[2];
 function mdLinks(route){
   const mdFiles = filesFn.findFiles(route); 
   const links = linksFn.getLinks(mdFiles).then((result) => {
-  validateFn.validate(result[0]).then((data) => {console.log(data)})
+    all_results = result.flat(2)
+    validateFn.validate(all_results).then((data) => {
+      console.log(data)
+      stadisticsFn.stadistics(data).then(stats => {
+        console.log(stats)})
+    })
   
-});
+  });
   
 }
 

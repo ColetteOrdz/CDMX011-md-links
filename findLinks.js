@@ -4,6 +4,7 @@ const fs = require("fs")
 const readFile = util.promisify(fs.readFile)
 
  async function getLinks (mdfile) {
+     //console.log(mdfile);
     return await Promise.all(mdfile.map(async (file) => { 
     const arrayLinks = [];
     
@@ -24,3 +25,4 @@ const readFile = util.promisify(fs.readFile)
 };
 
 exports.getLinks = getLinks
+ 
