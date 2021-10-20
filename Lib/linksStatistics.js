@@ -1,4 +1,4 @@
-function stadistics(arrayLinks){
+function statistics(arrayLinks){
     return new Promise((resolve, reject) =>{
         const allLinks = [];
         const online = [];
@@ -23,10 +23,11 @@ function stadistics(arrayLinks){
             Broken: broken.length,
             Unique: unique.length,
         };
+        //console.log(linksResult)
         resolve(linksResult);
     });
 }
 
-exports.stadistics = stadistics
+exports.statistics = statistics
 
 

@@ -20,6 +20,7 @@ const readFile = util.promisify(fs.readFile)
             }
         };
     marked(list.toString(), { renderer: render });
+    //console.log(arrayLinks)
     return arrayLinks
     }));
 };

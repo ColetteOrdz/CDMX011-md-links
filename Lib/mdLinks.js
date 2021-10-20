@@ -1,7 +1,7 @@
 const filesFn = require('./mdFiles.js')
 const linksFn = require('./findLinks.js')
 const validateFn = require('./linksValid.js')
-const stadisticsFn =  require('./linksStadistics')
+const statisticsFn =  require('./linksStatistics')
 
 const route = process.argv[2];
 
@@ -11,7 +11,7 @@ function mdLinks(route, options){
     all_results = result.flat(2); //me muestre todos los links en un solo array
     validateFn.validate(all_results).then((data) => {
       console.log(data);
-      stadisticsFn.stadistics(data).then(stats => {
+      statisticsFn.statistics(data).then(stats => {
         console.log(stats);
       });
     });
