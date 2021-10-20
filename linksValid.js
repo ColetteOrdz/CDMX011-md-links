@@ -22,5 +22,5 @@ async function validate(arrayLinks){
     }));
 
 }
-//validate(url).then((result) => {console.log(result)})
+
 exports.validate = validate
