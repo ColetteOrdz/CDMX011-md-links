@@ -4,62 +4,72 @@ const validateFn = require('./linksValid.js')
 const statisticsFn =  require('./linksStatistics')
 
 const route = process.argv[2];
-const options = process.argv[3];
+//const options = process.argv[3];
 
-function mdLinks(route, options){
-  //console.log(options)
+async function mdLinks(route, option, option2){
+  //console.log(typeof option);
+
   const mdFiles = filesFn.findFiles(route); 
-  const links = linksFn.getLinks(mdFiles).then((result) => {
-    all_results = result.flat(2)
-    console.log(all_results);
-    //console.log(all_results); //me da solo los links
-    // validateFn.validate(all_results).then(data => {
-    //   console.log(data) //me da los links con su status
-    //   statisticsFn.statistics(data).then(stats => {
-    //     console.log(stats) //me da las estadísticas
-    //   });
-    // });
-  });
-  
+  const links = await Promise.all([linksFn.getLinks(mdFiles).then((result) => {
+    all_results = result.flat(2);
+    return all_results })]);
+ 
+  const validate = await Promise.all([validateFn.validate(links[0]).then((validates) => { return validates })]);
+  const stats = await Promise.all([statisticsFn.statistics(validate[0]).then((stat) => { return stat })]);
+  const validStats = await Promise.all([validateFn.validate(links[0]).then((validates) => { return validates }), statisticsFn.statistics(validate[0]).then((stat) => { return stat })])
+   
 
-
-  new Promise((resolve, reject) => {
-    if(options.validate === false && options.stats === false){
-      resolve(links);
-    } else if(options.validate === true && options.stats === false){
-      resolve(linksFn.getLinks(mdFiles).then((result) => {
-        all_results = result.flat(2)
-        validateFn.validate(all_results).then(data => {console.log(data)})
-      })) //???
-      //const validOp = validateFn.validate(links); //o debería dejarlo como all_results?
-      //resolve(validOp);
-    } else if(options.validate === false && options.stats === true){
-      resolve(linksFn.getLinks(mdFiles).then((result) => {
+    if(option === undefined && option2 === undefined){
+      const urls = await Promise.all([linksFn.getLinks(mdFiles).then((result) => {
         all_results = result.flat(2);
-        validateFn.validate(all_results).then(data => {
-          statisticsFn.statistics(data).then(stats => {
-            console.log(stats) //me da las estadísticas
-          });
-        });
-      }))
-      //resolve con validate(links)
-    } else if(options.validate === true && options.stats === true){
-      resolve(linksFn.getLinks(mdFiles).then((result) => {
-        all_results = result.flat(2)
-        validateFn.validate(all_results).then(data => {
-          console.log(data);
-          statisticsFn.statistics(data).then(stats => {
-            console.log(stats) //me da las estadísticas
-          });
-        });
-      }))
-      //Se ejecuta validate(links), en el then(stats con lo que arroje validate)
-    };
-  });
+        return all_results })]);
+      return urls[0];
+
+    } else if(option === '--validate' && option2 === undefined){
+      return validate[0]
+      
+    }else if(option === '--stats' && option2 === undefined){
+      return stats[0]
+      
+    }else if(option === '--validate' && option2 === '--stats'){
+      return validStats
+      
+    }else {
+      console.log("No esta funcionando con ninguno de los dos")
+    }
+  // return await new Promise((resolve, reject) => {
+  //   if(option === undefined){
+  //     resolve(links[0]);
+
+  //   } else {
+  //     reject("No esta funcionando con ninguno")
+  //   }
+  //   if(option === '--validate' && option2 === undefined){
+  //     resolve(validate[0])
+      
+  //   }else {
+  //     reject("No esta funcionando con validate")
+  //   }
+  //   if(option === '--stats' && option2 === undefined){
+  //     resolve(stats[0])
+      
+  //   }else {
+  //     reject("No esta funcionando con stats")
+  //   }
+  //   if(option === '--validate' && option2 === '--stats'){
+  //     resolve(validStats)
+  //     //console.log('sí estoy entrando')
+  //     //resolve('sí estoy entrando')
+  //   }else {
+  //     reject("No esta funcionando con ninguno de los dos")
+  //   }
+  // });
 
 }
 
-mdLinks(route, options)
+mdLinks(route, process.argv[3], process.argv[4]).then((result)=>{
+  console.log(result);
+}).catch((err)=>{console.log(err);})
 
 //node mdLinks 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links'
 //node mdLinks 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links/README.md', '{validate: true, stats: false}'
