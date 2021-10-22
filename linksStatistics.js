@@ -14,7 +14,7 @@ function statistics(arrayLinks){
                 broken.push(link);
             }
         })
-        const uniqueArray = new Set(allLinks); //set crea un nuevo array con valores únicos
+        const uniqueArray = new Set(allLinks); //el método set crea un nuevo array con valores únicos
         const unique = [...uniqueArray];
 
         linksResult = {
@@ -23,11 +23,8 @@ function statistics(arrayLinks){
             Broken: broken.length,
             Unique: unique.length,
         };
-        //console.log(linksResult)
         resolve(linksResult);
     });
 }
 
 exports.statistics = statistics
-
-

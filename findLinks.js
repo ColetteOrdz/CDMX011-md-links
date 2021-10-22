@@ -14,7 +14,7 @@ const readFile = util.promisify(fs.readFile)
             if (href.startsWith("#") === false) {
                 arrayLinks.push({
                     href: href,
-                    text: text,
+                    text: text.substr(0,49),
                     file: file,
                 });
             }
@@ -26,4 +26,6 @@ const readFile = util.promisify(fs.readFile)
 };
 
 exports.getLinks = getLinks
+ 
+ 
  
