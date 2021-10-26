@@ -1,16 +1,21 @@
 #!/usr/bin/env node
+
 const chalk = require('chalk')
 const figlet = require('figlet')
 const mdLinksFn = require('./mdLinks.js')
 
-const message = (msn) => {
-    console.log(chalk.bold.cyan(figlet.textSync(msn, {
-        font: 'ANSI Shadow',
-        horizontalLayout: 'default',
-        verticalLayout: 'default'
-    })));
-};
+//const [,, ...args] = process.argv
+//console.log(`Hello world${args}`)
 
-(async() => {
-    message('MD-Links');
-})();
+const cli = () => {
+    console.log(chalk.cyanBright(figlet.textSync('MD Links', {
+        font: 'small',
+        horizontalLayout: 'default',
+        verticalLayout: 'default',
+        whitespaceBreak: true,
+    })))
+
+}
+
+cli() 
+
