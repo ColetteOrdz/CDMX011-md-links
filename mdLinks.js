@@ -42,6 +42,7 @@ mdLinks(route, process.argv[3], process.argv[4])
   .then((result)=>{console.log(result);})
   .catch((err)=>{console.log(err);})
 
+exports.mdLinks =  mdLinks
 
 //node mdLinks 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links'
 //node mdLinks C:/Users/Colette/Desktop/Labo/CDMX011-md-links/README.md --validate --stats

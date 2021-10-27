@@ -15,6 +15,8 @@ const cli = () => {
         whitespaceBreak: true,
     })))
 
+    //mdLinksFn.mdLinks()
+
 }
 
 cli() 
