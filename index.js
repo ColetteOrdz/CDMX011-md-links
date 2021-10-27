@@ -2,10 +2,6 @@
 
 const chalk = require('chalk')
 const figlet = require('figlet')
-const mdLinksFn = require('./mdLinks.js')
-
-//const [,, ...args] = process.argv
-//console.log(`Hello world${args}`)
 
 const cli = () => {
     console.log(chalk.cyanBright(figlet.textSync('MD Links', {
@@ -14,8 +10,6 @@ const cli = () => {
         verticalLayout: 'default',
         whitespaceBreak: true,
     })))
-
-    //mdLinksFn.mdLinks()
 
 }
 
