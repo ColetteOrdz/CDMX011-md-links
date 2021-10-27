@@ -7,8 +7,7 @@ const route = process.argv[2];
 //const options = process.argv[3];
 
 async function mdLinks(route, option, option2){
-  //console.log(typeof option);
-
+  
   const mdFiles = filesFn.findFiles(route); 
   const links = await Promise.all([linksFn.getLinks(mdFiles).then((result) => {
     all_results = result.flat(2);
@@ -35,41 +34,15 @@ async function mdLinks(route, option, option2){
       return validStats
       
     }else {
-      console.log("No esta funcionando con ninguno de los dos")
+      console.log("Petition went wrong")
     }
-  // return await new Promise((resolve, reject) => {
-  //   if(option === undefined){
-  //     resolve(links[0]);
-
-  //   } else {
-  //     reject("No esta funcionando con ninguno")
-  //   }
-  //   if(option === '--validate' && option2 === undefined){
-  //     resolve(validate[0])
-      
-  //   }else {
-  //     reject("No esta funcionando con validate")
-  //   }
-  //   if(option === '--stats' && option2 === undefined){
-  //     resolve(stats[0])
-      
-  //   }else {
-  //     reject("No esta funcionando con stats")
-  //   }
-  //   if(option === '--validate' && option2 === '--stats'){
-  //     resolve(validStats)
-  //     //console.log('sí estoy entrando')
-  //     //resolve('sí estoy entrando')
-  //   }else {
-  //     reject("No esta funcionando con ninguno de los dos")
-  //   }
-  // });
-
 }
 
-mdLinks(route, process.argv[3], process.argv[4]).then((result)=>{
-  console.log(result);
-}).catch((err)=>{console.log(err);})
+mdLinks(route, process.argv[3], process.argv[4])
+  .then((result)=>{console.log(result);})
+  .catch((err)=>{console.log(err);})
+
+exports.mdLinks =  mdLinks
 
 //node mdLinks 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links'
-//node mdLinks 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links/README.md', '{validate: true, stats: false}'
+//node mdLinks C:/Users/Colette/Desktop/Labo/CDMX011-md-links/README.md --validate --stats
