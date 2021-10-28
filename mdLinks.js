@@ -1,3 +1,4 @@
+const chalk = require('chalk')
 const filesFn = require('./mdFiles.js')
 const linksFn = require('./findLinks.js')
 const validateFn = require('./linksValid.js')
@@ -34,15 +35,22 @@ async function mdLinks(route, option, option2){
       return validStats
       
     }else {
-      console.log("Petition went wrong")
+      console.log("The petition went wrong.")
     }
 }
 
 mdLinks(route, process.argv[3], process.argv[4])
-  .then((result)=>{console.log(result);})
-  .catch((err)=>{console.log(err);})
+  .then((result)=>{
+    console.log(result);
+    console.log(chalk.cyanBright('Your files have been analyzed.'));
+  })
+  .catch((err)=>{
+    console.log(chalk.redBright('Something went wrong with the petition.'));
+    console.log(err);
+  })
 
 exports.mdLinks =  mdLinks
 
-//node mdLinks 'C:/Users/Colette/Desktop/Labo/CDMX011-md-links'
-//node mdLinks C:/Users/Colette/Desktop/Labo/CDMX011-md-links/README.md --validate --stats
+
+//C:/Users/Colette/Desktop/Labo/CDMX011-md-links/archivo3.md --validate --stats
+//C:/Users/Colette/Desktop/Labo/CDMX011-md-links/nivel1/nivel2 --validate --stats
