@@ -13,7 +13,6 @@ const cli = () => {
         whitespaceBreak: true,
     })))
 
-     //mdlinks.mdLinks()
 }
 
 cli() 

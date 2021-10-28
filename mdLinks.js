@@ -5,7 +5,7 @@ const validateFn = require('./linksValid.js')
 const statisticsFn =  require('./linksStatistics')
 
 const route = process.argv[2];
-//const options = process.argv[3];
+
 
 async function mdLinks(route, option, option2){
   
@@ -52,5 +52,3 @@ mdLinks(route, process.argv[3], process.argv[4])
 exports.mdLinks =  mdLinks
 
 
-//C:/Users/Colette/Desktop/Labo/CDMX011-md-links/archivo3.md --validate --stats
-//C:/Users/Colette/Desktop/Labo/CDMX011-md-links/nivel1/nivel2 --validate --stats

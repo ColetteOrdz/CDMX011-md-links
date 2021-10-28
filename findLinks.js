@@ -3,8 +3,7 @@ const marked = require("marked")
 const fs = require("fs")
 const readFile = util.promisify(fs.readFile)
 
- async function getLinks (mdfile) {
-     //console.log(mdfile);
+ async function getLinks (mdfile) {   
     return await Promise.all(mdfile.map(async (file) => { 
     const arrayLinks = [];
     
@@ -20,7 +19,6 @@ const readFile = util.promisify(fs.readFile)
             }
         };
     marked(list.toString(), { renderer: render });
-    //console.log(arrayLinks)
     return arrayLinks
     }));
 };
