@@ -1,7 +1,7 @@
 const util = require('util')
 const marked = require("marked")
 const fs = require("fs")
-const readFile = util.promisify(fs.readFile)
+const readFile = util.promisify(fs.readFile)//Sirve para convertir a readFile en una promesas
 
  async function getLinks (mdfile) {   
     return await Promise.all(mdfile.map(async (file) => { 
