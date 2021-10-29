@@ -7,7 +7,6 @@ async function validate(arrayLinks){
         .then(response => {
             link["status"] = response.status;
             link["message"] = (response.status == 200) ? 'OK' : 'FAIL';
-            //console.log(link)
             return link            
         })
         .catch(error => {
