@@ -16,17 +16,14 @@ MDLinks es una librería/módulo basado en promesas para node.js que se ejecuta 
 ##### Argumentos
 
 * `path`: Ruta **absoluta** o **relativa** al **archivo** o **directorio**.
-Si la ruta pasada es relativa, debe resolverse como relativa al directorio
-desde donde se invoca node - _current working directory_).
+
 * `options`: Un objeto con **únicamente** la siguiente propiedad:
   - `validate`: Booleano que determina si se desea validar los links
     encontrados.
 
 ##### Valor de retorno
 
-La función debe **retornar una promesa** (`Promise`) que **resuelva a un arreglo**
-(`Array`) de objetos (`Object`), donde cada objeto representa un link y contiene
-las siguientes propiedades
+La función retorna un arreglo de objetos, donde cada objeto representa un link y contiene las siguientes propiedades
 
 Con `validate:false` :
 
